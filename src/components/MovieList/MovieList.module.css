@@ -1,0 +1,10 @@
+.movieLink {
+    text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+        color:black
+}
+.movieLink:hover {
+    text-decoration: underline;
+    
+}

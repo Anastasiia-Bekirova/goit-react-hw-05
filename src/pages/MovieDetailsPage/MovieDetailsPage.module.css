@@ -1,0 +1,44 @@
+.wrapper {
+    margin-top: 120px;
+    position: relative;
+    padding-left: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.movieDetails {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+   
+}
+
+.movieDetails::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: darkgrey;
+    margin-top: 10px;
+}
+
+.additionalInfo {
+    margin-top: 20px;
+}
+
+.additionalInfo::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: darkgrey;
+    margin-top: 10px;
+}
+
+.text {
+    font-size: 18px;
+}
+.goBack {
+    width: 92px;
+    border: none;
+    background-color: white;
+}

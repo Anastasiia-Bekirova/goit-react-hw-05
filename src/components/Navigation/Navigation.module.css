@@ -1,0 +1,27 @@
+header {
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index: 100;
+    background-color: white;
+}
+.menuWrapper {
+ 
+        padding: 15px;
+        width: 100%;
+        border-style: none;
+    border-bottom: 2px solid grey;
+    box-shadow: 0px 10px 5px grey;
+}
+.link {
+    display: inline-flex;
+    padding: 15px;
+    border-style: none;
+    font-size: 24px;
+    transition: all 0.4s;
+    color: black;
+}
+.active {
+    color: darkred;
+}
