@@ -1,9 +1,11 @@
 import { fetchMovieReviews } from "../../api/searchMovie"
 import { useEffect, useState } from 'react';
+import { useParams } from "react-router-dom";
 import styles from './MovieReviews.module.css'
 
-function MovieReviews({ movieId }) {
+function MovieReviews() {
     const [reviews, setReviews] = useState([]);
+    const { movieId } = useParams();
 
     useEffect(() => { 
      if (!movieId) 

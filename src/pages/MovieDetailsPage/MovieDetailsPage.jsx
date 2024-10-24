@@ -10,20 +10,18 @@ import { Suspense } from 'react';
 const defaultImg = 'https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg'
 
 
-function MovieDetailsPage({onMovieIdSelect}) {
+function MovieDetailsPage() {
 
     const [movie, setMovie] = useState(null);
     const navigate = useNavigate();
     const location = useLocation();
     const { movieId } = useParams();
    
-  
-  
     
  useEffect(() => {
      if (!movieId) 
     return;
-  onMovieIdSelect(movieId);
+ 
     const getMovieDetails = async () => {
     
       
@@ -68,16 +66,16 @@ function MovieDetailsPage({onMovieIdSelect}) {
                 <h2>Additional information</h2>
                 <ul>
                     <li>
-                        <Link state={{from: backUrl}} to={`/movies/${movie.id}/cast`}>
+                        <Link state={{from: backUrl}} to={`cast`}>
             Cast
                         </Link>
                     </li>
                     <li>
-                        <Link state={{from: backUrl}} to={`/movies/${movie.id}/reviews`}>
+                        <Link state={{from: backUrl}} to={`reviews`}>
             Reviews
                         </Link>
                     </li>
-                </ul>           
+                </ul>        
             </div>
              <Suspense fallback={<div>Loading subpage...</div>}>
         <Outlet />

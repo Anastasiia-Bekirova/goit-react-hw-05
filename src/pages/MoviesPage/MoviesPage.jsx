@@ -1,13 +1,53 @@
-
+import { useState, useEffect } from 'react'
+import { fetchMovies } from '../../api/searchMovie';
 import MovieList from '../../components/MovieList/MovieList';
-
+import {useSearchParams} from "react-router-dom";
 import styles from './MoviesPage.module.css'
 
 
 
-function MoviesPage({onSearch, movies}) {
+function MoviesPage() {
     
+const [movies, setMovies] = useState([]);
+const [searchParams, setSearchParams] = useSearchParams();
+const searchedValue = searchParams.get("query");
+const [movieId, setMovieId] = useState(null);
+   
+  const onSearch = (value) => {
+  setSearchParams({ query: value });
+  setMovies([]);
+  
+  };
+  
+ 
+   const handleMovieId = (id) => {
+    setMovieId(id); // Update movieId state
+  };
+   
+   
+  
+ 
+  useEffect(() => {
+    const fetchMoviesData = async () => {
+      if (!searchedValue) return;
 
+      try {
+       
+        const response = await fetchMovies(searchedValue);
+        if (movies.length === 0) {
+          setMovies(response.data.results);
+        } 
+        
+      } catch (error) { 
+        alert("No movies with such name!")
+      
+      }
+
+    };
+        
+
+      fetchMoviesData();
+  }, [searchedValue]);
 
 
     const handleSubmit = (evt) => {
